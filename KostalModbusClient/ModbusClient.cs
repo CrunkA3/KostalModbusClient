@@ -58,6 +58,25 @@ public class ModbusClient
     public Task<FloatResponseMessage> GetGridFrequency() => QueryFloatDataAsync(152);
 
 
+    public Task<FloatResponseMessage> GetCurrentPhase1() => QueryFloatDataAsync(154);
+    public Task<FloatResponseMessage> GetActualPowerPhase1() => QueryFloatDataAsync(156);
+    public Task<FloatResponseMessage> GetVoltagePhase1() => QueryFloatDataAsync(158);
+
+    public Task<FloatResponseMessage> GetCurrentPhase2() => QueryFloatDataAsync(160);
+    public Task<FloatResponseMessage> GetActualPowerPhase2() => QueryFloatDataAsync(162);
+    public Task<FloatResponseMessage> GetVoltagePhase2() => QueryFloatDataAsync(164);
+
+    public Task<FloatResponseMessage> GetCurrentPhase3() => QueryFloatDataAsync(166);
+    public Task<FloatResponseMessage> GetActualPowerPhase3() => QueryFloatDataAsync(168);
+    public Task<FloatResponseMessage> GetVoltagePhase3() => QueryFloatDataAsync(170);
+
+
+    public Task<FloatResponseMessage> GetTotalAcActivePower() => QueryFloatDataAsync(172);
+    public Task<FloatResponseMessage> GetTotalAcReactivePower() => QueryFloatDataAsync(174);
+    public Task<FloatResponseMessage> GetTotalAcApparentPower() => QueryFloatDataAsync(178);
+
+
+
 
     public async Task<BoolResponseMessage> QueryBoolDataAsync(short address, CancellationToken cancellationToken = default) => new BoolResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
     public async Task<FloatResponseMessage> QueryFloatDataAsync(short address, CancellationToken cancellationToken = default) => new FloatResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
