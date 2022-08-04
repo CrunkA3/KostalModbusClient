@@ -26,18 +26,36 @@ public class ModbusClient
     public Task<BoolResponseMessage> GetModbusEnabled() => QueryBoolDataAsync(2);
     public Task<StringResponseMessage> GetInverterArticleNumber() => QueryStringDataAsync(6);
     public Task<StringResponseMessage> GetInverterSerialNumber() => QueryStringDataAsync(14);
+
     public Task<UInt16ResponseMessage> GetNumberOfBidirectionalConverter() => QueryUInt16DataAsync(30);
     public Task<UInt16ResponseMessage> GetNumberOfAcStrings() => QueryUInt16DataAsync(32);
     public Task<UInt16ResponseMessage> GetNumberOfPvStrings() => QueryUInt16DataAsync(34);
+
     public Task<VersionResponseMessage> GetHardwareVersion() => QueryVersionDataAsync(36);
     public Task<StringResponseMessage> GetSoftwareVersionMC() => QueryStringDataAsync(38);
     public Task<StringResponseMessage> GetSoftwareVersionIOC() => QueryStringDataAsync(46);
+
     public Task<UInt16ResponseMessage> GetPowerId() => QueryUInt16DataAsync(54);
+
     public Task<InverterStateResponseMessage> GetInverterState() => QueryInverterStateDataAsync(56);
     public Task<FloatResponseMessage> GetTotalDcPower() => QueryFloatDataAsync(100);
     public Task<EnergyManagerStateResponseMessage> GetInverterStateOfEnergyManager() => QueryEmergyManagerStateDataAsync(104);
 
+    public Task<FloatResponseMessage> GetHomeOwnConsumptionFromBattery() => QueryFloatDataAsync(106);
+    public Task<FloatResponseMessage> GetHomeOwnConsumptionFromGrid() => QueryFloatDataAsync(108);
+    public Task<FloatResponseMessage> GetHomeOwnConsumptionFromPv() => QueryFloatDataAsync(116);
+
+    public Task<FloatResponseMessage> GetTotalHomeOwnConsumptionFromBattery() => QueryFloatDataAsync(110);
+    public Task<FloatResponseMessage> GetTotalHomeOwnConsumptionFromGrid() => QueryFloatDataAsync(112);
+    public Task<FloatResponseMessage> GetTotalHomeOwnConsumptionFromPv() => QueryFloatDataAsync(114);
+    public Task<FloatResponseMessage> GetTotalHomeOwnConsumption() => QueryFloatDataAsync(118);
+
+    public Task<FloatResponseMessage> GetIsolationResistance() => QueryFloatDataAsync(120);
+    public Task<FloatResponseMessage> GetPowerLimitFromEvu() => QueryFloatDataAsync(122);
+    public Task<FloatResponseMessage> TotalHomeConsumptionRate() => QueryFloatDataAsync(124);
     public Task<FloatResponseMessage> GetWorkTime() => QueryFloatDataAsync(144);
+    public Task<FloatResponseMessage> GetActualCos() => QueryFloatDataAsync(150);
+    public Task<FloatResponseMessage> GetGridFrequency() => QueryFloatDataAsync(152);
 
 
 
