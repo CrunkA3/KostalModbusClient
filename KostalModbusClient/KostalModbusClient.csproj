@@ -4,6 +4,25 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>KostalModbusClient</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>CrunkA3</Authors>
+    <PackageTags>modbus;kostal;energy;meter;inverter</PackageTags>
+    <Description>Modbus Client for Kostal Inverters</Description>
+    <PackageProjectUrl>https://github.com/CrunkA3/KostalModbusClient</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/CrunkA3/KostalModbusClient</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
