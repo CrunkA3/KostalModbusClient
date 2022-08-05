@@ -75,17 +75,96 @@ public class ModbusClient
     public Task<FloatResponseMessage> GetTotalAcReactivePower() => QueryFloatDataAsync(174);
     public Task<FloatResponseMessage> GetTotalAcApparentPower() => QueryFloatDataAsync(178);
 
+    public Task<FloatResponseMessage> GetBatteryChargeCurrent() => QueryFloatDataAsync(190);
+    public Task<FloatResponseMessage> GetNumberOfBatteryCycles() => QueryFloatDataAsync(194);
+    public Task<FloatResponseMessage> GetActualBatteryChargeCurrent() => QueryFloatDataAsync(200);
+    public Task<PssbFuseStateResponseMessage> GetPssbFuseState() => QueryPssbFuseStateDataAsync(202);
+    public Task<FloatResponseMessage> GetBatteryReadyFlag() => QueryFloatDataAsync(208);
+    public Task<FloatResponseMessage> GetActStateOfCharge() => QueryFloatDataAsync(210);
+    public Task<FloatResponseMessage> GetBatteryTemperature() => QueryFloatDataAsync(214);
+    public Task<FloatResponseMessage> GetBatteryVoltage() => QueryFloatDataAsync(216);
+    public Task<FloatResponseMessage> GetPowermeterCos() => QueryFloatDataAsync(218);
+    public Task<FloatResponseMessage> GetPowermeterFrequency() => QueryFloatDataAsync(220);
+    public Task<FloatResponseMessage> GetPowermeterCurrentPhase1() => QueryFloatDataAsync(222);
+    public Task<FloatResponseMessage> GetPowermeterActivePowerPhase1() => QueryFloatDataAsync(224);
+    public Task<FloatResponseMessage> GetPowermeterReactivePowerPhase1() => QueryFloatDataAsync(226);
+    public Task<FloatResponseMessage> GetPowermeterApparentPowerPhase1() => QueryFloatDataAsync(228);
+    public Task<FloatResponseMessage> GetPowermeterVoltagePhase1() => QueryFloatDataAsync(230);
+    public Task<FloatResponseMessage> GetPowermeterCurrentPhase2() => QueryFloatDataAsync(232);
+    public Task<FloatResponseMessage> GetPowermeterActivePowerPhase2() => QueryFloatDataAsync(234);
+    public Task<FloatResponseMessage> GetPowermeterReactivePowerPhase2() => QueryFloatDataAsync(236);
+    public Task<FloatResponseMessage> GetPowermeterApparentPowerPhase2() => QueryFloatDataAsync(238);
+    public Task<FloatResponseMessage> GetPowermeterVoltagePhase2() => QueryFloatDataAsync(240);
+    public Task<FloatResponseMessage> GetPowermeterCurrentPhase3() => QueryFloatDataAsync(242);
+    public Task<FloatResponseMessage> GetPowermeterActivePowerPhase3() => QueryFloatDataAsync(244);
+    public Task<FloatResponseMessage> GetPowermeterReactivePowerPhase3() => QueryFloatDataAsync(246);
+    public Task<FloatResponseMessage> GetPowermeterApparentPowerPhase3() => QueryFloatDataAsync(248);
+    public Task<FloatResponseMessage> GetPowermeterVoltagePhase3() => QueryFloatDataAsync(250);
+
+    public Task<FloatResponseMessage> GetPowermeterTotalActivePower() => QueryFloatDataAsync(252);
+    public Task<FloatResponseMessage> GetPowermeterTotalReactivePower() => QueryFloatDataAsync(254);
+    public Task<FloatResponseMessage> GetPowermeterTotalApparentPower() => QueryFloatDataAsync(256);
+    public Task<FloatResponseMessage> GetCurrentDC1() => QueryFloatDataAsync(258);
+    public Task<FloatResponseMessage> GetPowerDC1() => QueryFloatDataAsync(260);
+    public Task<FloatResponseMessage> GetVoltageDC1() => QueryFloatDataAsync(266);
+    public Task<FloatResponseMessage> GetCurrentDC2() => QueryFloatDataAsync(268);
+    public Task<FloatResponseMessage> GetPowerDC2() => QueryFloatDataAsync(270);
+    public Task<FloatResponseMessage> GetVoltageDC2() => QueryFloatDataAsync(276);
+    public Task<FloatResponseMessage> GetCurrentDC3() => QueryFloatDataAsync(278);
+    public Task<FloatResponseMessage> GetPowerDC3() => QueryFloatDataAsync(280);
+    public Task<FloatResponseMessage> GetVoltageDC3() => QueryFloatDataAsync(286);
+    public Task<FloatResponseMessage> GetYieldTotal() => QueryFloatDataAsync(320);
+    public Task<FloatResponseMessage> GetYieldDaily() => QueryFloatDataAsync(322);
+    public Task<FloatResponseMessage> GetYieldYearly() => QueryFloatDataAsync(324);
+    public Task<FloatResponseMessage> GetYieldMonthly() => QueryFloatDataAsync(326);
+    public Task<StringResponseMessage> GetInverterNetworkName() => QueryStringDataAsync(384, 32);
+    public Task<UInt16ResponseMessage> GetIPEnable() => QueryUInt16DataAsync(416);
+    public Task<UInt16ResponseMessage> GetManualIP() => QueryUInt16DataAsync(418);
+    public Task<StringResponseMessage> GetIPAddress() => QueryStringDataAsync(420);
+    public Task<StringResponseMessage> GetIPSubnetmask() => QueryStringDataAsync(428);
+    public Task<StringResponseMessage> GetIPGateway() => QueryStringDataAsync(436);
+    public Task<UInt16ResponseMessage> GetIPAutoDns() => QueryUInt16DataAsync(444);
+    public Task<StringResponseMessage> GetIPDns1() => QueryStringDataAsync(446);
+    public Task<StringResponseMessage> GetIPDns2() => QueryStringDataAsync(454);
+    public Task<UInt32ResponseMessage> GetBatteryGrossCapacity() => QueryUInt32DataAsync(512);
+    public Task<UInt16ResponseMessage> GetBatteryActualSoc() => QueryUInt16DataAsync(514);
+    public Task<UInt32ResponseMessage> GetFirmwareMaincontroller() => QueryUInt32DataAsync(515);
+    public Task<StringResponseMessage> GetBatteryManufacturer() => QueryStringDataAsync(517);
+
+
+    public Task<UInt32ResponseMessage> GetBatteryModelId() => QueryUInt32DataAsync(525);
+    public Task<UInt32ResponseMessage> GetBatterySerialNumber() => QueryUInt32DataAsync(527);
+    public Task<UInt32ResponseMessage> GetWorkCapacity() => QueryUInt32DataAsync(529);
+    public Task<UInt16ResponseMessage> GetInverterMaxPower() => QueryUInt16DataAsync(531);
+    //public Task<FactorResponseMessage> GetInverterPeakGenerationPowerScaleFactor() => QueryStringDataAsync(532);
+    public Task<StringResponseMessage> GetInverter() => QueryStringDataAsync(535, 16);
+    public Task<StringResponseMessage> GetInverterModelId() => QueryStringDataAsync(551);
+    public Task<StringResponseMessage> GetInverterSerialNumber2() => QueryStringDataAsync(559);
+    public Task<Int16ResponseMessage> GetInverterGenerationPowerActual() => QueryInt16DataAsync(575);
+    //public Task<FactorResponseMessage> GetPowerScaleFactor() => QueryStringDataAsync(576);
+    public Task<UInt32ResponseMessage> GetGenerationEnergy() => QueryUInt32DataAsync(577);
+    //public Task<FactorResponseMessage> GetEnergyScaleFactor() => QueryStringDataAsync(579);
+    public Task<Int16ResponseMessage> GetActualBatteryChargePower() => QueryInt16DataAsync(582);
+    public Task<UInt32ResponseMessage> GetBatteryFirmware() => QueryUInt32DataAsync(586);
+    public Task<UInt16ResponseMessage> GetBatteryType() => QueryUInt16DataAsync(588);
+    public Task<StringResponseMessage> GetProductName() => QueryStringDataAsync(768, 32);
+    public Task<StringResponseMessage> GetPower() => QueryStringDataAsync(800, 32);
+
+
 
 
 
     public async Task<BoolResponseMessage> QueryBoolDataAsync(short address, CancellationToken cancellationToken = default) => new BoolResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
     public async Task<FloatResponseMessage> QueryFloatDataAsync(short address, CancellationToken cancellationToken = default) => new FloatResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
-    public async Task<StringResponseMessage> QueryStringDataAsync(short address, CancellationToken cancellationToken = default) => new StringResponseMessage(await QueryDataAsync(address, 8, cancellationToken));
+    public Task<StringResponseMessage> QueryStringDataAsync(short address, CancellationToken cancellationToken = default) => QueryStringDataAsync(address, 8, cancellationToken);
+    public async Task<StringResponseMessage> QueryStringDataAsync(short address, byte length, CancellationToken cancellationToken = default) => new StringResponseMessage(await QueryDataAsync(address, length, cancellationToken), length);
+    public async Task<Int16ResponseMessage> QueryInt16DataAsync(short address, CancellationToken cancellationToken = default) => new Int16ResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
     public async Task<UInt16ResponseMessage> QueryUInt16DataAsync(short address, CancellationToken cancellationToken = default) => new UInt16ResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
     public async Task<UInt32ResponseMessage> QueryUInt32DataAsync(short address, CancellationToken cancellationToken = default) => new UInt32ResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
     public async Task<VersionResponseMessage> QueryVersionDataAsync(short address, CancellationToken cancellationToken = default) => new VersionResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
     public async Task<InverterStateResponseMessage> QueryInverterStateDataAsync(short address, CancellationToken cancellationToken = default) => new InverterStateResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
     public async Task<EnergyManagerStateResponseMessage> QueryEmergyManagerStateDataAsync(short address, CancellationToken cancellationToken = default) => new EnergyManagerStateResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
+    public async Task<PssbFuseStateResponseMessage> QueryPssbFuseStateDataAsync(short address, CancellationToken cancellationToken = default) => new PssbFuseStateResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
 
     private async Task<byte[]> QueryDataAsync(short address, short quantity, CancellationToken cancellationToken = default)
     {
