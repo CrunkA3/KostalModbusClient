@@ -148,7 +148,7 @@ public class ModbusClient
     public Task<UInt32ResponseMessage> GetBatteryFirmware() => QueryUInt32DataAsync(586);
     public Task<UInt16ResponseMessage> GetBatteryType() => QueryUInt16DataAsync(588);
     public Task<StringResponseMessage> GetProductName() => QueryStringDataAsync(768, 32);
-    public Task<StringResponseMessage> GetPower() => QueryStringDataAsync(800, 32);
+    public Task<StringResponseMessage> GetPowerClass() => QueryStringDataAsync(800, 32);
 
 
 
