@@ -19,4 +19,20 @@ public class UnitTest1
         var stateResponse = await client.GetTotalDcPower();
         Assert.NotEqual(0, stateResponse.Value);
     }
+
+
+    [Fact]
+    public async Task TestPowerClass()
+    {
+        var stateResponse = await client.GetPowerClass();
+        Assert.NotEmpty(stateResponse.Value);
+    }
+
+
+    [Fact]
+    public async Task TestInverterSerialNumber()
+    {
+        var stateResponse = await client.GetInverterSerialNumber();
+        Assert.NotEmpty(stateResponse.Value);
+    }
 }
