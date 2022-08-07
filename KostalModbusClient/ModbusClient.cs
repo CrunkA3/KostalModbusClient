@@ -25,7 +25,7 @@ public class ModbusClient
 
     public Task<BoolResponseMessage> GetModbusEnabled() => QueryBoolDataAsync(2);
     public Task<StringResponseMessage> GetInverterArticleNumber() => QueryStringDataAsync(6);
-    public Task<StringResponseMessage> GetInverterSerialNumber() => QueryStringDataAsync(14);
+    public Task<StringResponseMessage> GetInverterSerialNumber() => QueryStringDataAsync(14, 16);
 
     public Task<UInt16ResponseMessage> GetNumberOfBidirectionalConverter() => QueryUInt16DataAsync(30);
     public Task<UInt16ResponseMessage> GetNumberOfAcStrings() => QueryUInt16DataAsync(32);
