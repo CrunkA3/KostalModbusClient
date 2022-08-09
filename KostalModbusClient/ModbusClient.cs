@@ -22,7 +22,6 @@ public class ModbusClient
     }
 
 
-
     public Task<BoolResponseMessage> GetModbusEnabled(CancellationToken cancellationToken = default) => QueryBoolDataAsync(2, cancellationToken);
     public Task<StringResponseMessage> GetInverterArticleNumber(CancellationToken cancellationToken = default) => QueryStringDataAsync(6, cancellationToken);
     public Task<StringResponseMessage> GetInverterSerialNumber(CancellationToken cancellationToken = default) => QueryStringDataAsync(14, 16, cancellationToken);
@@ -39,7 +38,7 @@ public class ModbusClient
 
     public Task<InverterStateResponseMessage> GetInverterState(CancellationToken cancellationToken = default) => QueryInverterStateDataAsync(56, cancellationToken);
     public Task<FloatResponseMessage> GetTotalDcPower(CancellationToken cancellationToken = default) => QueryFloatDataAsync(100, cancellationToken);
-    public Task<EnergyManagerStateResponseMessage> GetInverterStateOfEnergyManager(CancellationToken cancellationToken = default) => QueryEmergyManagerStateDataAsync(104, cancellationToken);
+    public Task<EnergyManagerStateResponseMessage> GetInverterStateOfEnergyManager(CancellationToken cancellationToken = default) => QueryEnergyManagerStateDataAsync(104, cancellationToken);
 
     public Task<FloatResponseMessage> GetHomeOwnConsumptionFromBattery(CancellationToken cancellationToken = default) => QueryFloatDataAsync(106, cancellationToken);
     public Task<FloatResponseMessage> GetHomeOwnConsumptionFromGrid(CancellationToken cancellationToken = default) => QueryFloatDataAsync(108, cancellationToken);
@@ -154,18 +153,116 @@ public class ModbusClient
 
 
 
+    /// <summary>
+    /// Query bool data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
+
     public async Task<BoolResponseMessage> QueryBoolDataAsync(short address, CancellationToken cancellationToken = default) => new BoolResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
+
+    /// <summary>
+    /// Query float data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<FloatResponseMessage> QueryFloatDataAsync(short address, CancellationToken cancellationToken = default) => new FloatResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
+
+    /// <summary>
+    /// Query string data with length of 8 chars from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public Task<StringResponseMessage> QueryStringDataAsync(short address, CancellationToken cancellationToken = default) => QueryStringDataAsync(address, 8, cancellationToken);
+
+    /// <summary>
+    /// Query string data with specific length of chars from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="length">String length</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<StringResponseMessage> QueryStringDataAsync(short address, byte length, CancellationToken cancellationToken = default) => new StringResponseMessage(await QueryDataAsync(address, length, cancellationToken), length);
+
+    /// <summary>
+    /// Query int16 data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<Int16ResponseMessage> QueryInt16DataAsync(short address, CancellationToken cancellationToken = default) => new Int16ResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
+
+    /// <summary>
+    /// Query unsigned int16 data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<UInt16ResponseMessage> QueryUInt16DataAsync(short address, CancellationToken cancellationToken = default) => new UInt16ResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
+
+    /// <summary>
+    /// Query unsigned int32 data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<UInt32ResponseMessage> QueryUInt32DataAsync(short address, CancellationToken cancellationToken = default) => new UInt32ResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
+
+    /// <summary>
+    /// Query version data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<VersionResponseMessage> QueryVersionDataAsync(short address, CancellationToken cancellationToken = default) => new VersionResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
+    
+    /// <summary>
+    /// Query inverter-state data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<InverterStateResponseMessage> QueryInverterStateDataAsync(short address, CancellationToken cancellationToken = default) => new InverterStateResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
-    public async Task<EnergyManagerStateResponseMessage> QueryEmergyManagerStateDataAsync(short address, CancellationToken cancellationToken = default) => new EnergyManagerStateResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
+    
+    /// <summary>
+    /// Query energy-manager-state data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
+    public async Task<EnergyManagerStateResponseMessage> QueryEnergyManagerStateDataAsync(short address, CancellationToken cancellationToken = default) => new EnergyManagerStateResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
+    
+    /// <summary>
+    /// Query pssb-fuse-state data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
     public async Task<PssbFuseStateResponseMessage> QueryPssbFuseStateDataAsync(short address, CancellationToken cancellationToken = default) => new PssbFuseStateResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
 
+
+    /// <summary>
+    /// Query data from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="quantity">Number of registers (one register = 2 Bytes)</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns>
+    /// <exception cref="ModbusException"></exception>
     private async Task<byte[]> QueryDataAsync(short address, short quantity, CancellationToken cancellationToken = default)
     {
         var requestBytes = RequestMessage.CreateReadMessage(UnitId, address, quantity).GetBytes();
