@@ -35,4 +35,11 @@ public class UnitTest1
         var stateResponse = await client.GetInverterSerialNumber();
         Assert.NotEmpty(stateResponse.Value);
     }
+
+
+    [Fact]
+    public async Task TestWrongAddress()
+    {
+        await Assert.ThrowsAsync<ModbusException>(async () => await client.QueryBoolDataAsync(900));
+    }
 }

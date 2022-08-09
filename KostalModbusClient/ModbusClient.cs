@@ -179,6 +179,7 @@ public class ModbusClient
         stream.Close();
         client.Close();
 
+        if (responseBytes[7] != 0x03) throw new ModbusException(new ExceptionResponseMessage(responseBytes));
         return responseBytes;
     }
 }
