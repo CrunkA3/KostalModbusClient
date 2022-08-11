@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>KostalModbusClient</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>CrunkA3</Authors>
     <PackageTags>modbus;kostal;energy;meter;inverter</PackageTags>
     <Description>Modbus Client for Kostal Inverters</Description>
