@@ -70,6 +70,7 @@ public class ModbusClient
     public Task<FloatResponseMessage> GetVoltagePhase3(CancellationToken cancellationToken = default) => QueryFloatDataAsync(170, cancellationToken);
 
 
+    public Task<PowerResponseMessage> GetTotalAcPower(CancellationToken cancellationToken = default) => QueryPowerDataAsync(172, offsetApparent: 12, cancellationToken: cancellationToken);
     public Task<FloatResponseMessage> GetTotalAcActivePower(CancellationToken cancellationToken = default) => QueryFloatDataAsync(172, cancellationToken);
     public Task<FloatResponseMessage> GetTotalAcReactivePower(CancellationToken cancellationToken = default) => QueryFloatDataAsync(174, cancellationToken);
     public Task<FloatResponseMessage> GetTotalAcApparentPower(CancellationToken cancellationToken = default) => QueryFloatDataAsync(178, cancellationToken);
@@ -84,25 +85,34 @@ public class ModbusClient
     public Task<FloatResponseMessage> GetBatteryVoltage(CancellationToken cancellationToken = default) => QueryFloatDataAsync(216, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterCos(CancellationToken cancellationToken = default) => QueryFloatDataAsync(218, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterFrequency(CancellationToken cancellationToken = default) => QueryFloatDataAsync(220, cancellationToken);
+
+
+    public Task<PowerResponseMessage> GetPowermeterPowerPhase1(CancellationToken cancellationToken = default) => QueryPowerDataAsync(224, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterCurrentPhase1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(222, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterActivePowerPhase1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(224, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterReactivePowerPhase1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(226, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterApparentPowerPhase1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(228, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterVoltagePhase1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(230, cancellationToken);
+
+    public Task<PowerResponseMessage> GetPowermeterPowerPhase2(CancellationToken cancellationToken = default) => QueryPowerDataAsync(234, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterCurrentPhase2(CancellationToken cancellationToken = default) => QueryFloatDataAsync(232, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterActivePowerPhase2(CancellationToken cancellationToken = default) => QueryFloatDataAsync(234, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterReactivePowerPhase2(CancellationToken cancellationToken = default) => QueryFloatDataAsync(236, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterApparentPowerPhase2(CancellationToken cancellationToken = default) => QueryFloatDataAsync(238, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterVoltagePhase2(CancellationToken cancellationToken = default) => QueryFloatDataAsync(240, cancellationToken);
+
+    public Task<PowerResponseMessage> GetPowermeterPowerPhase3(CancellationToken cancellationToken = default) => QueryPowerDataAsync(244, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterCurrentPhase3(CancellationToken cancellationToken = default) => QueryFloatDataAsync(242, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterActivePowerPhase3(CancellationToken cancellationToken = default) => QueryFloatDataAsync(244, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterReactivePowerPhase3(CancellationToken cancellationToken = default) => QueryFloatDataAsync(246, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterApparentPowerPhase3(CancellationToken cancellationToken = default) => QueryFloatDataAsync(248, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterVoltagePhase3(CancellationToken cancellationToken = default) => QueryFloatDataAsync(250, cancellationToken);
 
+    public Task<PowerResponseMessage> GetPowermeterTotalPower(CancellationToken cancellationToken = default) => QueryPowerDataAsync(252, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterTotalActivePower(CancellationToken cancellationToken = default) => QueryFloatDataAsync(252, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterTotalReactivePower(CancellationToken cancellationToken = default) => QueryFloatDataAsync(254, cancellationToken);
     public Task<FloatResponseMessage> GetPowermeterTotalApparentPower(CancellationToken cancellationToken = default) => QueryFloatDataAsync(256, cancellationToken);
+
     public Task<FloatResponseMessage> GetCurrentDC1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(258, cancellationToken);
     public Task<FloatResponseMessage> GetPowerDC1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(260, cancellationToken);
     public Task<FloatResponseMessage> GetVoltageDC1(CancellationToken cancellationToken = default) => QueryFloatDataAsync(266, cancellationToken);
@@ -226,7 +236,7 @@ public class ModbusClient
     /// <returns></returns> 
     /// <exception cref="ModbusException"></exception>
     public async Task<VersionResponseMessage> QueryVersionDataAsync(short address, CancellationToken cancellationToken = default) => new VersionResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
-    
+
     /// <summary>
     /// Query inverter-state data from Modbus-Server
     /// </summary>
@@ -235,7 +245,7 @@ public class ModbusClient
     /// <returns></returns> 
     /// <exception cref="ModbusException"></exception>
     public async Task<InverterStateResponseMessage> QueryInverterStateDataAsync(short address, CancellationToken cancellationToken = default) => new InverterStateResponseMessage(await QueryDataAsync(address, 1, cancellationToken));
-    
+
     /// <summary>
     /// Query energy-manager-state data from Modbus-Server
     /// </summary>
@@ -244,7 +254,7 @@ public class ModbusClient
     /// <returns></returns> 
     /// <exception cref="ModbusException"></exception>
     public async Task<EnergyManagerStateResponseMessage> QueryEnergyManagerStateDataAsync(short address, CancellationToken cancellationToken = default) => new EnergyManagerStateResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
-    
+
     /// <summary>
     /// Query pssb-fuse-state data from Modbus-Server
     /// </summary>
@@ -253,6 +263,33 @@ public class ModbusClient
     /// <returns></returns> 
     /// <exception cref="ModbusException"></exception>
     public async Task<PssbFuseStateResponseMessage> QueryPssbFuseStateDataAsync(short address, CancellationToken cancellationToken = default) => new PssbFuseStateResponseMessage(await QueryDataAsync(address, 2, cancellationToken));
+
+    /// <summary>
+    /// Query power data (active, reactive, apparent) from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns></returns> 
+    /// <exception cref="ModbusException"></exception>
+    public async Task<PowerResponseMessage> QueryPowerDataAsync(short address, CancellationToken cancellationToken = default) => new PowerResponseMessage(await QueryDataAsync(address, 6, cancellationToken));
+
+    /// <summary>
+    /// Query power data (active, reactive, apparent) from Modbus-Server
+    /// </summary>
+    /// <param name="address">Starting Adress of query data</param>
+    /// <param name="offsetActive">Offset of active power from starting adress (default 0)</param>
+    /// <param name="offsetReactive">Offset of reactive power from starting adress (default 4)</param>
+    /// <param name="offsetApparent">Offset of apparent power from starting adress (default 8)</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    public async Task<PowerResponseMessage> QueryPowerDataAsync(short address, short offsetActive = 0, short offsetReactive = 4, short offsetApparent = 8, CancellationToken cancellationToken = default)
+    {
+        var maxOffset = Math.Max(Math.Max(offsetActive, offsetReactive), offsetApparent);
+        var quantity = (short)((maxOffset + 4) / 2);
+        return new PowerResponseMessage(await QueryDataAsync(address, quantity, cancellationToken), offsetActive, offsetReactive, offsetApparent);
+    }
+
+
 
 
     /// <summary>

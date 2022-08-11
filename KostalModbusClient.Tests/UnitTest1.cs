@@ -42,4 +42,20 @@ public class UnitTest1
     {
         await Assert.ThrowsAsync<ModbusException>(async () => await client.QueryBoolDataAsync(900));
     }
+
+
+    [Fact]
+    public async Task TestPowerMultiValueResponse()
+    {
+
+        var totalAcPowerResponse = await client.GetTotalAcPower();
+
+        var totalAcActivePowerResponse = await client.GetTotalAcActivePower();
+        var totalAcReactivePowerResponse = await client.GetTotalAcReactivePower();
+        var totalAcApparentPowerResponse = await client.GetTotalAcApparentPower();
+
+        Assert.Equal(totalAcActivePowerResponse.Value, totalAcPowerResponse.ActivePower);
+        Assert.Equal(totalAcReactivePowerResponse.Value, totalAcPowerResponse.ReactivePower);
+        Assert.Equal(totalAcApparentPowerResponse.Value, totalAcPowerResponse.ApparentPower);
+    }
 }
