@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KostalModbusClient", "Kosta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KostalModbusClient.Tests", "KostalModbusClient.Tests\KostalModbusClient.Tests.csproj", "{8CAF6A75-D3DD-416C-B08B-933B84E733D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KostalModbusClient.Showcase", "KostalModbusClient.Showcase\KostalModbusClient.Showcase.csproj", "{8056CF85-08E5-4C6C-9D1B-B78651CEDC2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8CAF6A75-D3DD-416C-B08B-933B84E733D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CAF6A75-D3DD-416C-B08B-933B84E733D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CAF6A75-D3DD-416C-B08B-933B84E733D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8056CF85-08E5-4C6C-9D1B-B78651CEDC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8056CF85-08E5-4C6C-9D1B-B78651CEDC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8056CF85-08E5-4C6C-9D1B-B78651CEDC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8056CF85-08E5-4C6C-9D1B-B78651CEDC2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

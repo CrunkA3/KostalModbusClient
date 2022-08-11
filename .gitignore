@@ -1,4 +1,6 @@
 /KostalModbusClient/bin
 /KostalModbusClient/obj
+/KostalModbusClient.Showcase/bin
+/KostalModbusClient.Showcase/obj
 /KostalModbusClient.Tests/bin
 /KostalModbusClient.Tests/obj
